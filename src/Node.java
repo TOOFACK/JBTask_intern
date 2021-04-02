@@ -10,7 +10,7 @@ class Node {
     }
 }
 
-class NodeIterator implements Iterator<Node> {
+class NodeIterator implements Iterator<java.lang.Integer> {
     private final Set<Node> visited = new HashSet<>();
     private final Queue<Node> q = new LinkedList<>();
 
@@ -31,7 +31,8 @@ class NodeIterator implements Iterator<Node> {
 
 
     @Override
-    public Node next() {
+    public java.lang.Integer next() {
+
         // TODO implement
         if(hasNext()){
             Node next = q.remove();
@@ -41,7 +42,7 @@ class NodeIterator implements Iterator<Node> {
                     this.visited.add(n);
                 }
             }
-            return next;
+            return next.value;
             } else {
             throw  new NoSuchElementException();
         }
@@ -61,7 +62,7 @@ class NodeIterator implements Iterator<Node> {
         NodeIterator iterator = new NodeIterator(start);
         // should print numbers 1-4 in any order
         while (iterator.hasNext()) {
-            System.out.println(iterator.next().value);
+            System.out.println(iterator.next());
         }
     }
 }
